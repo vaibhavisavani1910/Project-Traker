@@ -1,0 +1,28 @@
+<div class="create-issue-container">
+    <h2>Create Project</h2>
+    <form>
+      <div class="form-group">
+        <label for="summary">Project Name</label>
+        <input type="text" id="project" name="project" class="form-control" [(ngModel)]="project">
+      </div>
+    
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" id="description" name="description" [(ngModel)]="description"></textarea>
+      </div>
+
+      <!-- <div class="form-group">
+        <label>Github Owner Username</label>
+        <textarea class="form-control" id="ownername" name="ownername" [(ngModel)]="ownername"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Github Project Name</label>
+        <textarea class="form-control" id="gitname" name="gitname" [(ngModel)]="gitname"></textarea>
+      </div> -->
+
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="createIssue()">Create</button>
+    </form>
+  </div>
+  

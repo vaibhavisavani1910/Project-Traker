@@ -1,0 +1,7 @@
+.p-l-34{
+  padding-left: 34px;
+}
+.navbar{
+  width: calc(100vw - 250px);
+  /* width: 100%; */
+}

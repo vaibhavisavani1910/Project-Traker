@@ -1,0 +1,185 @@
+<div>
+  <div class="task" cdkDrag>
+    <div class="taskHeadingContainer">
+    <p class="taskHeading">
+      {{ content.summary }} 
+      <button class="icon-button-heading" (click)="openModal(modalContent)">
+      <i class="fas fa-edit editIcon"></i>   
+    </button>
+    </p>
+  </div>
+    <hr />
+    <!-- <p class="taskDisc">{{content.disc}}</p> -->
+    <div class="icon-container">
+      <button type="button" class="taskDisc btn">
+        {{ content.description }}</button
+      ><!-- Display the bug icon if the task type is 'bug' -->
+      <i *ngIf="content.issuetype == 'bug'" class="fas fa-icon type fa-bug"></i>
+      <!-- Display the tasks icon if the task type is 'task' -->
+      <i
+        *ngIf="content.issuetype == 'task'"
+        class="fas fa-icon type fa-tasks"
+      ></i>
+      <!-- <i class=" fas type fa-regular fa-code-merge" style="top: 33px; color: #4cbb17;"></i> -->
+
+      <i
+        *ngIf="content.priority == 'high'"
+        class="fas fa-icon type fa-solid fa-angle-up high"
+      ></i>
+      <i
+        *ngIf="content.priority == 'low'"
+        class="fas fa-icon type fa-solid fa-angle-down low"
+      ></i>
+      <i
+        *ngIf="content.priority == 'medium'"
+        class="fas fa-icon type fa-solid fa-equals medium"
+      ></i>
+    </div>
+    <!-- <i class="fas fa-icon priority fa-bug"></i> -->
+    <p class="assign">Assigned to : {{ content.assignee }}</p>
+    <p class="assign">Assigned to : {{ content.reporter }}</p>
+
+    <!-- (click)="openModal(modalContent)" -->
+
+    <button
+      class="btn btn-primary btn-sm details"
+      (click)="openReadOnlyModal()"
+    >
+      View Details
+    </button>
+    <br />
+  </div>
+</div>
+
+<ng-template #modalContent>
+  <!-- <div class="modal-dialog modal-dialog-centered custom-modal-dialog" role="document"> -->
+  <div class="modal-content">
+    <div class="modal-body">
+      <div class="update-issue-container">
+        <h2>Update Task - {{content.summary}}</h2>
+        <form>
+          <!-- Hidden input for taskId -->
+          <input type="hidden" id="taskId" [value]="currentTaskId" />
+          <!-- 
+            <div class="form-group">
+              <label for="projectDropdown">Project</label>
+              <select id="project" name="project" class="form-control" [(ngModel)]="taskToEdit.project">
+                <option value="project1">Project 1</option>
+                <option value="project2">Project 2</option> -->
+          <!-- Add more project options here -->
+          <!-- </select>
+            </div> -->
+
+          <div class="form-group">
+            <label for="issueTypeDropdown">Issue Type</label>
+            <select
+              id="issuetype"
+              name="issuetype"
+              class="form-control"
+              [(ngModel)]="taskToEdit.issuetype"
+            >
+              <option value="task">Task</option>
+              <option value="bug">Bug</option>
+              <!-- Add more issue type options here -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="statusDropdown">Status</label>
+            <select
+              id="status"
+              name="status"
+              class="form-control"
+              [(ngModel)]="taskToEdit.status"
+            >
+              <option value="to-do">To-Do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done">Done</option>
+              <!-- Add more status options here -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="summary">Summary</label>
+            <input
+              type="text"
+              id="summary"
+              name="summary"
+              class="form-control"
+              [(ngModel)]="taskToEdit.summary"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <textarea
+              class="form-control"
+              id="description"
+              name="description"
+              [(ngModel)]="taskToEdit.description"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="assigneeDropdown">Assignee</label>
+            <select
+              [(ngModel)]="taskToEdit.assignee"
+              name="assignee"
+              class="form-control"
+            >
+              <option *ngFor="let user of users" [value]="user.username">
+                {{ user.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="reporterDropdown">Reporter</label>
+            <select
+              [(ngModel)]="taskToEdit.reporter"
+              #reporterControl="ngModel"
+              name="reporter"
+              class="form-control"
+              [appValidators]="taskToEdit.assignee"
+            >
+              <option *ngFor="let user of users" [value]="user.username">
+                {{ user.name }}
+              </option>
+            </select>
+            <div *ngIf="reporterControl.errors?.['samePersonError']">
+              Assignee and Reporter cannot be the same person.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closeModal()">
+        Close
+      </button>
+      <button type="button" class="btn btn-primary" (click)="saveChanges()">
+        Save Changes
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #readOnlyModalContent>
+  <div class="modal-content">
+    <div class="modal-body">
+      <h2>Task Details</h2>
+      <!-- Display the task details in a non-interactive way -->
+      <p><strong>Project:</strong> {{ taskToEdit.project }}</p>
+      <p><strong>Issue Type:</strong> {{ taskToEdit.issuetype }}</p>
+      <p><strong>Status:</strong> {{ taskToEdit.status }}</p>
+      <p><strong>Summary:</strong> {{ taskToEdit.summary }}</p>
+      <p><strong>Description:</strong> {{ taskToEdit.description }}</p>
+      <p><strong>Assignee:</strong> {{ taskToEdit.assignee }}</p>
+      <p><strong>Reporter:</strong> {{ taskToEdit.reporter }}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+    </div>
+  </div>
+</ng-template>

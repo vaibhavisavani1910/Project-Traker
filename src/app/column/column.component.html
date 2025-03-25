@@ -1,0 +1,55 @@
+    <div class="container-fluid">
+
+      <div class="board">
+        <h1>Project Tracker</h1>
+      </div>
+      <div class="btnRow">
+        <button type="button btnFilter" class="btn btn-light" (click)="assignedToMe()">Task assigned to me</button>
+
+        <button type="button btnCreate" class="btn btn-primary" style="
+        float: right; " (click)="openCreateProject()">Create Project</button>
+        <button type="button btnCreate" class="btn btn-primary" style="
+        float: right;margin-right:10px;" (click)="openCreateTask()">Create Task</button>
+        <!-- <app-create-issue *ngIf="showModal"></app-create-issue> -->
+      </div>
+      
+    <div class="row border taskRow" cdkDropListGroup>
+      
+      <div class="col taskCol list" cdkDropList
+                                    id = "to-do"
+                                    [cdkDropListData]="todoTasks"
+                                    cdkDropListConnectedTo="in-progress"
+                                    (cdkDropListDropped)="drop($event)"
+       >
+       <p class="colHeading">To-Do</p>
+          <ng-container  *ngFor="let todotask of todoTasks">
+            <app-task [content]="todotask" [project_name]="project_name"> </app-task>
+          </ng-container>
+      </div>
+
+      <div class="col taskCol list" cdkDropList
+      id = "in-progress"
+      [cdkDropListData]="inProgTasks"
+      cdkDropListConnectedTo="inprog"
+      (cdkDropListDropped)="drop($event)">
+        <p class="colHeading">In Progress</p>
+          <ng-container  *ngFor="let inProgTask of inProgTasks">
+            <app-task [content]="inProgTask" [project_name]="project_name"> </app-task>
+          </ng-container>
+      </div>
+
+      <div class="col taskCol list" cdkDropList
+      id = "done"
+      [cdkDropListData]="doneTasks"
+      cdkDropListConnectedTo="todo"
+      (cdkDropListDropped)="drop($event)">
+        <p class="colHeading">Done</p>
+        <ng-container  *ngFor="let doneTask of doneTasks">
+          <app-task [content]="doneTask" [project_name]="project_name"> </app-task>
+        </ng-container>
+      </div>
+   
+    </div>
+
+    </div>
+ 

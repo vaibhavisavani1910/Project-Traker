@@ -1,0 +1,35 @@
+/* th{
+    background-color: #F4F5F7;
+}
+
+tr{
+    background-color: #F4F5F7;
+}
+
+td{
+    background-color: #F4F5F7;
+} */
+.backlog-list{
+    margin: 15px;
+    padding: 0;
+}
+.board{
+    padding-top: 25px;
+    padding-bottom: 21px;
+    padding-left: 13px;
+}
+.btnRow{
+    padding-left: 9px;
+}
+.btnCreate{
+    float: right !important;
+}
+.high{
+    color: red;
+}
+.low{
+    color: #0052CC;
+}
+.medium{
+    color: #FAD02C;
+}

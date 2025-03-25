@@ -1,0 +1,67 @@
+.column {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    min-width: 250px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin-top: 0;
+  }
+  
+  h3 {
+    font-size: 16px;
+    margin-top: 0;
+  }
+  
+  p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  .board{
+    padding-top: 25px;
+    padding-bottom: 21px;
+    padding-left: 13px;
+  }
+  .btnRow{
+    padding-left: 9px;
+  }
+  .btnCreate{
+    float: right !important;
+  }
+  .taskRow{
+    padding: 12px;
+    border: 0 !important;
+  }
+  .taskCol{
+    background-color: #F4F5F7;
+    border-radius: 8px;
+    margin: 7px;
+    padding: 0px;
+  }
+  .colHeading{
+    background-color: #F4F5F7;
+    margin: 0px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    padding: 0;
+    vertical-align: middle;
+    margin: 0px;
+    font-size: 21px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .task.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }  
+  .cdk-drop-list-dragging .cdk-drag {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }

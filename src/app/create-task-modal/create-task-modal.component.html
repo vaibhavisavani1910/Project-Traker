@@ -1,0 +1,70 @@
+<div class="create-issue-container">
+    <h2>Create Issue for {{project}}</h2>
+    <form>
+      <div class="form-group">
+        <!-- <label for="projectDropdown">Project</label>
+        <select id="project" name="project" class="form-control" [(ngModel)]="project">
+          <option value="project1">Project 1</option>
+          <option value="project2">Project 2</option>
+        </select> -->
+      </div>
+      <div class="form-group">
+        <label for="issueTypeDropdown">Issue Type</label>
+        <select id="issuetype" name="issuetype" class="form-control" [(ngModel)]="issuetype">
+          <option value="task">Task</option>
+          <option value="bug">Bug</option>
+          <!-- Add more issue type options here -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="statusDropdown">Status</label>
+        <select id="status" name="status" class="form-control" [(ngModel)]="status">
+          <option value="to-do">To-Do</option>
+          <option value="in-progress">In Progress</option>
+          <option value="done">Done</option>
+          <!-- Add more status options here -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="summary">Summary</label>
+        <input type="text" id="summary" name="summary" class="form-control" [(ngModel)]="summary">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" id="description" name="description" [(ngModel)]="description"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="priorityDropdown">Priority</label>
+        <select id="priority" name="priority" class="form-control" [(ngModel)]="priority">
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+          <!-- Add more status options here -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="assigneeDropdown">Assignee</label>
+        <select id="assignee" name="assignee" class="form-control" [(ngModel)]="assignee">
+          <!-- <option value="user1">User 1</option>
+          <option value="user2">User 2</option> -->
+
+          <option *ngFor="let user of users" [value]="user.username">{{ user.name }}</option>
+          <!-- Add more assignee options here -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="reporterDropdown">Reporter</label>
+        <select id="reporter" name="reporter"  class="form-control" [(ngModel)]="reporter">
+          <!-- <option value="user1">User 1</option>
+          <option value="user2">User 2</option> -->
+          <option *ngFor="let user of users" [value]="user.username">{{ user.name }}</option>
+          <!-- Add more reporter options here -->
+        </select>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="createIssue()">Create</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!-- <div class="d-flex" id="wrapper">
+    <app-adminsidebar></app-adminsidebar>
+    <app-adminheader></app-adminheader>
+     
+
+    <h1>list of projects</h1>
+    <div *ngFor="let project of projects" class="div1" >
+      
+        <a routerLink="#">
+          {{ project.name }}
+        </a>
+        <p>{{ project.description }}</p><br>
+      </div>
+    </div> -->
+    <div class="header"><app-adminheader></app-adminheader></div>
+<div class="container">
+  <!-- <div class="sidebar"><app-adminsidebar></app-adminsidebar></div> -->
+  <div class="content">
+    <div *ngFor="let project of projects" class="project-item">
+      <!-- Display project data here -->
+      <!-- <a (click)="navigateToProjectDetail()">{{ project.name }}</a> -->
+      <button type="button btnCreate" class="btn btn-primary" style="
+        float: right;" (click)="navigateToProjectDetail(project.name)">{{ project.name }}</button>
+      <p>{{ project.description }}</p>
+    </div>
+  </div>
+</div>
+
+  
+  
+</body>
+</html>
+
+

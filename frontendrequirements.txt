@@ -1,0 +1,15 @@
+# Install project dependencies, hello
+npm install
+
+# Install ngx-toastr
+npm install ngx-toastr
+
+# Install TypeScript type declarations for google-one-tap as a development dependency
+npm install @types/google-one-tap --save-dev
+
+# Install Bootstrap
+npm install bootstrap
+npm install -g concurrently
+npm install --save-dev @types/sweetalert2
+
+

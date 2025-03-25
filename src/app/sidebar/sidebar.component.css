@@ -1,0 +1,21 @@
+#sidebar-wrapper {
+  min-height: 100vh;
+  transition: margin 0.25s ease-out;
+  width: 241px;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+  width: 250px;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+#sidebar-wrapper .list-group .list-group-item{
+  border-bottom-width: 1 !important;
+}
+.border-end {
+  border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}

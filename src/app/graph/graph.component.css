@@ -1,0 +1,70 @@
+
+    
+    
+    .container-fluid {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    
+    .header-bar {
+      background-color: #f8f9fa;
+      padding: 2px;
+    position: fixed; 
+      top: 0;
+      width: 100%;
+      /* z-index: 1000;  */
+      
+    }
+    
+    .sidebar {
+      height: 100vh;
+      position: fixed;
+      top: 60px; 
+      right: 0;
+      width: 250px;
+      padding-top: 20px;
+      background-color: #f8f9fa; 
+      overflow-y: auto;
+    }
+    
+    .sidebar-heading {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    
+    .content {
+      margin-right: 250px; 
+      padding: 20px;
+      /* padding-top: 70px;  */
+      text-align: center; 
+    }
+
+    
+    .div1{
+      height: 800px;
+      width: 750px;
+      align-items: center;
+      margin-top: 6%;
+      margin-left: 20%;
+    }
+    
+    .userslist {
+      margin-top: 20px;
+    }
+    
+    button {
+      margin-top: 10px;
+    }
+    
+    select {
+      margin-top: 10px;
+    }
+    
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    

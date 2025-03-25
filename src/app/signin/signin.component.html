@@ -1,0 +1,48 @@
+<div class="panelContainer">
+  <b>Welcome to the Project Tracker!
+</b></div>
+<form class="border p-3 rounded-3" id="form1"  (ngSubmit)="loginSubmitted()">
+  <div class="row g-0">
+    <!-- this login green color wala -->
+    <div class="col text-center p-1 mb-2 text-white"  id="registermenu" >
+      <span class="fs-3 ">Sign In!!</span>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-2">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" name="username"  required [(ngModel)]="username">
+
+
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col mb-2">
+      <label for="Password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password"  required [(ngModel)]="password" >
+
+
+
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="d-grid">
+      <button type="submit" id="buttonsubmit" class="btn btn-primary text-white" >Login</button>
+    </div>
+  </div>
+  </div>
+
+  <br />
+  <div id="buttonDiv"></div>
+</form>
+<div class="square"></div>
+<div class="square1"></div>
+
+<div class="rectanglepane">
+
+</div>
+

@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="board">
+        <h1>Backlog of {{project_name}}</h1>
+      </div>
+
+      <button type="button btnCreate" class="btn btn-primary" (click)="openCreateBacklog()">Create Backlog</button>
+    
+    <div class="backlog-list border">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Summary</th>
+                <th scope="col">Description</th>
+                <th scope="col">Status</th>
+                <th scope="col">Issue Type</th>
+                <th scope="col">Tags</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Assignee</th>
+                <th scope="col">Reporter</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let issue of issues">
+                <td>{{issue.summary}}</td>
+                <td>{{issue.description}}</td>
+                <td>{{issue.status}}</td>
+                <td>{{issue.issuetype}}</td>
+                <td>{{issue.tags}}</td>
+                <td>
+                  <!-- {{issue.priority}} -->
+                  <i *ngIf="issue.priority == 'high'" class="fas fa-icon type fa-solid fa-angle-up high"></i>
+                  <i *ngIf="issue.priority == 'low'" class="fas fa-icon type fa-solid fa-angle-down low"></i>
+                  <i *ngIf="issue.priority == 'medium'" class="fas fa-icon type fa-solid fa-equals medium"></i>
+
+                </td>
+                <td>{{issue.assignee}}</td>
+                <td>{{issue.reporter}}</td>
+                <td>
+                  <button type="button" class="btn btn-danger" (click)="deleteBacklog(issue)" ngbTooltip="Delete Issue"> <i class="fa fa-close"></i> </button>
+                  <button type="button" class="btn btn-primary" (click)="editBacklog(issue)" ngbTooltip="Edit Issue"> <i class="fa fa-edit"></i> </button>
+                  <button type="button" class="btn btn-success" (click)="createTask(issue)" ngbTooltip="Create Task from Backlog"> <i class="fa fa-tasks"></i> </button>
+                </td>
+
+              </tr>
+          
+            </tbody>
+          </table>
+    </div>
+</div>
